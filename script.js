@@ -343,31 +343,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ========== Touch Support for Mobile ==========
-let touchStartY = 0;
-
-document.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-document.addEventListener('touchend', (e) => {
-    const touchEndY = e.changedTouches[0].clientY;
-    const diff = touchStartY - touchEndY;
-
-    // Swipe up to go next
-    if (diff > 50 && currentPage < totalPages) {
-        // Only on page 2 and 3
-        if (currentPage > 1 && currentPage < 4) {
-            nextPage();
-        }
-    }
-
-    // Swipe down to go back
-    if (diff < -50 && currentPage > 1) {
-        if (currentPage > 1) {
-            prevPage();
-        }
-    }
-}, { passive: true });
+// ========== Touch Support Removed as per user request ==========
+// Navigation is restricted to buttons only.
 
 console.log('💕 Página de San Valentín para Belen cargada con amor 💕');
